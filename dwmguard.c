@@ -16,15 +16,15 @@ main(void)
     int running = 1, status;
     pid_t pid;
 
-    while (running > 0) {
+    while (running) {
         pid = fork();
         switch(pid) {
+            case -1:
+                perror("fork");
+                exit(1);
             case 0:
                 execl(DWM, DWM, NULL);
                 perror("execv");
-                exit(1);
-            case -1:
-                perror("fork");
                 exit(1);
             default:
                 if (wait(&status) < 0) {
@@ -38,7 +38,6 @@ main(void)
                            WTERMSIG(status));
                     exit(WTERMSIG(status));
                 }
-                break;
         }
     }
 
