@@ -8,13 +8,18 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-#define DWM     "/usr/local/bin/dwm"
-
 int
-main(void)
+main(int argc, char **argv)
 {
     int running = 1, status;
     pid_t pid;
+
+    if (argc < 2) {
+        fprintf(stderr, "error: invalid argument - command expected\n");
+        exit(1);
+    }
+
+    ++argv;
 
     while (running) {
         pid = fork();
@@ -23,7 +28,7 @@ main(void)
                 perror("fork");
                 exit(1);
             case 0:
-                execl(DWM, DWM, NULL);
+                execv(argv[0], argv);
                 perror("execv");
                 exit(1);
             default:
