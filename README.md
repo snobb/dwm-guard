@@ -11,7 +11,7 @@ Usage:
 The dwm guard will exit if dwm exited with exit code 0 or restart dwm
 otherwise.
 
-Function to exit with exist code:
+Function to exit with custom exit code:
 ---------------------------------
 ```c
 static void exit_code(const Arg *args)
