@@ -23,5 +23,5 @@ static void exit_code(const Arg *args)
 Shortcut in DWM configh.h
 -------------------------
 ```c
-    { MODKEY|ShiftMask,        XK_r,            exit_code,      {.i = 1} },
+    { MODKEY|ShiftMask,        XK_r,            exit_code,      {.i = 42} },
 ```

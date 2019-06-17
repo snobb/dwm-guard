@@ -24,7 +24,7 @@ main(void)
                 exit(1);
             case 0:
                 execl(DWM, DWM, NULL);
-                perror("execv");
+                perror("execl");
                 exit(1);
         }
 
