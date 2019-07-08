@@ -1,6 +1,6 @@
 DWM process handler
 ========================================================================
-The DWM process handler allowing to restart dwm without closing all windows.
+The DWM process handler that allows restarting dwm without closing all windows.
 
 Usage:
 ------
